@@ -29,8 +29,8 @@ public class Link {
     @Column(nullable = false, unique = true, length = 15)
     private String shortCode;               // «hash»/slug
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    private User owner;
+    @Column(nullable = false, length = 320)
+    private String ownerEmail;
 
     private OffsetDateTime createdAt;
     private OffsetDateTime updatedAt;

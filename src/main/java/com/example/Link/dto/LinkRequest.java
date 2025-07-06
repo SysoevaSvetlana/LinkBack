@@ -1,2 +1,10 @@
-package com.example.Link.dto;public class LinkRequest {
+package com.example.Link.dto;
+
+
+import jakarta.validation.constraints.*;
+
+public record LinkRequest(
+        @NotBlank String originalUrl
+) {
 }
+
