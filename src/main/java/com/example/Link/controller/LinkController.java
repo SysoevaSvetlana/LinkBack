@@ -3,6 +3,7 @@ package com.example.Link.controller;
 import com.example.Link.dto.LinkRequest;
 import com.example.Link.dto.LinkResponse;
 import com.example.Link.service.LinkService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -20,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@SecurityRequirement(name = "bearerAuth")
 @RequestMapping("/links") @RequiredArgsConstructor
 public class LinkController {
 

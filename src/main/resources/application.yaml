@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/link_db?allowPublicKeyRetrieval=true&useSSL=falselink
+    url: jdbc:mysql://localhost:3306/link_db?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: mysecret
+    password: Astra2005
 
   security:
     oauth2:

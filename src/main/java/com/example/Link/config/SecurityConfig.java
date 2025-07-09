@@ -14,12 +14,16 @@ import org.springframework.security.web.SecurityFilterChain;
 // SecurityConfig.java
 @Configuration
 @EnableMethodSecurity
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class SecurityConfig {
     private final KeycloakRoleConverter converter;
 
+    public SecurityConfig(KeycloakRoleConverter converter) {
+        this.converter = converter;
+    }
+
     @Bean
-    SecurityFilterChain api(HttpSecurity http) throws Exception {
+    SecurityFilterChain securityOpenApi (HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
