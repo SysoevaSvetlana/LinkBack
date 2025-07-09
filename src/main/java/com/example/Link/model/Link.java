@@ -39,7 +39,8 @@ public class Link {
     @Column(nullable = false)
     private boolean isDeleted = false;
 
-    @Column(nullable = false) private long clicks = 0;
+    @Column(nullable = false)
+    private long clicks = 0;
 
 
     @PrePersist
@@ -51,8 +52,9 @@ public class Link {
     void preUpdate() {
         updatedAt = OffsetDateTime.now();
     }
-    /** Пустой конструктор обязателен для JPA. */
-    public Link() { }
+
+    public Link() {
+    }
 
     public Link(Long id, String originalUrl, String shortCode,
                 String ownerEmail, OffsetDateTime createdAt,
@@ -66,7 +68,6 @@ public class Link {
         this.isDeleted = isDeleted;
     }
 
-    /* ---------- static builder ---------- */
 
     public static Builder builder() {
         return new Builder();
@@ -74,38 +75,103 @@ public class Link {
 
     public static final class Builder {
         private final Link link = new Link();
-        public Builder id(Long id) { link.id = id; return this; }
-        public Builder originalUrl(String u) { link.originalUrl = u; return this; }
-        public Builder shortCode(String c) { link.shortCode = c; return this; }
-        public Builder ownerEmail(String e) { link.ownerEmail = e; return this; }
-        public Builder createdAt(OffsetDateTime t) { link.createdAt = t; return this; }
-        public Builder updatedAt(OffsetDateTime t) { link.updatedAt = t; return this; }
-        public Builder deleted(boolean d) { link.isDeleted = d; return this; }
-        public Link build() { return link; }
+
+        public Builder id(Long id) {
+            link.id = id;
+            return this;
+        }
+
+        public Builder originalUrl(String u) {
+            link.originalUrl = u;
+            return this;
+        }
+
+        public Builder shortCode(String c) {
+            link.shortCode = c;
+            return this;
+        }
+
+        public Builder ownerEmail(String e) {
+            link.ownerEmail = e;
+            return this;
+        }
+
+        public Builder createdAt(OffsetDateTime t) {
+            link.createdAt = t;
+            return this;
+        }
+
+        public Builder updatedAt(OffsetDateTime t) {
+            link.updatedAt = t;
+            return this;
+        }
+
+        public Builder deleted(boolean d) {
+            link.isDeleted = d;
+            return this;
+        }
+
+        public Link build() {
+            return link;
+        }
     }
 
-    /* ---------- getters / setters ---------- */
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
 
-    public String getOriginalUrl() { return originalUrl; }
-    public void setOriginalUrl(String originalUrl) { this.originalUrl = originalUrl; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getShortCode() { return shortCode; }
-    public void setShortCode(String shortCode) { this.shortCode = shortCode; }
+    public String getOriginalUrl() {
+        return originalUrl;
+    }
 
-    public String getOwnerEmail() { return ownerEmail; }
-    public void setOwnerEmail(String ownerEmail) { this.ownerEmail = ownerEmail; }
+    public void setOriginalUrl(String originalUrl) {
+        this.originalUrl = originalUrl;
+    }
 
-    public OffsetDateTime getCreatedAt() { return createdAt; }
-    public void setCreatedAt(OffsetDateTime createdAt) { this.createdAt = createdAt; }
+    public String getShortCode() {
+        return shortCode;
+    }
 
-    public OffsetDateTime getUpdatedAt() { return updatedAt; }
-    public void setUpdatedAt(OffsetDateTime updatedAt) { this.updatedAt = updatedAt; }
+    public void setShortCode(String shortCode) {
+        this.shortCode = shortCode;
+    }
 
-    public boolean isDeleted() { return isDeleted; }
-    public void setDeleted(boolean deleted) { isDeleted = deleted; }
+    public String getOwnerEmail() {
+        return ownerEmail;
+    }
+
+    public void setOwnerEmail(String ownerEmail) {
+        this.ownerEmail = ownerEmail;
+    }
+
+    public OffsetDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(OffsetDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public OffsetDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(OffsetDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
+    }
 
     /* ---------- equals / hashCode / toString ---------- */
 

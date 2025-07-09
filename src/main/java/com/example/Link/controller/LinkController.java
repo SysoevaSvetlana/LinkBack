@@ -61,7 +61,7 @@ public class LinkController {
         return service.findMy(jwt.getClaim("email"), search, from, to, pageable);
     }
 
-    /* ---------- admin ---------- */
+
     @GetMapping("/admin")
     @PreAuthorize("hasRole('ADMIN')")
     public Page<LinkResponse> allLinks(@RequestParam(required=false) String userEmail,

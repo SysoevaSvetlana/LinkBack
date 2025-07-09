@@ -29,7 +29,7 @@ public class LinkService {
     private static final String ABC = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     private final SecureRandom rnd = new SecureRandom();
 
-    /* ---------- create (лимит 1000/сутки) ---------- */
+
     @Transactional
     public LinkResponse create(Jwt jwt, LinkRequest dto) {
         String email = jwt.getClaim("email");
@@ -45,7 +45,7 @@ public class LinkService {
         return toDto(repo.save(link));
     }
 
-    /* ---------- read / update / delete ---------- */
+
     @Transactional(readOnly = true)
     public LinkResponse findById(Long id, String email) {
         return repo.findById(id)
@@ -71,7 +71,7 @@ public class LinkService {
         repo.delete(link);                    // @SQLDelete
     }
 
-    /* ---------- lists ---------- */
+
     @Transactional(readOnly = true)
     public Page<LinkResponse> findMy(String email, String search,
                                      OffsetDateTime from, OffsetDateTime to,
@@ -87,7 +87,7 @@ public class LinkService {
         return repo.searchAllAdmin(userEmail, search, from, to, p).map(this::toDto);
     }
 
-    /* ---------- helpers ---------- */
+
     private String generateUniqueCode(int len) {
         String code;
         do {
