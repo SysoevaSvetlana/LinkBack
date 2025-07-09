@@ -27,7 +27,7 @@ public class Link {
     private String originalUrl;
 
     @Column(nullable = false, unique = true, length = 15)
-    private String shortCode;               // «hash»/slug
+    private String shortCode;
 
     @Column(nullable = false, length = 320)
     private String ownerEmail;
@@ -37,6 +37,9 @@ public class Link {
 
     @Column(nullable = false)
     private boolean isDeleted = false;
+
+    @Column(nullable = false) private long clicks = 0;
+
 
     @PrePersist
     void prePersist() {

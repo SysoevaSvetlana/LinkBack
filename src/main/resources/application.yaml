@@ -5,6 +5,12 @@ spring:
     username: root
     password: mysecret
 
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8081/realms/link-realm
+
   jpa:
     hibernate:
       ddl-auto: update
