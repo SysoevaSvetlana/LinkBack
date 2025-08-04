@@ -18,7 +18,7 @@
 - **Spring Web**
 - **Spring Data JPA**
 - **Spring Security**
-- **PostgreSQL / H2**
+- **MySQL**
 - **Keycloak (OAuth2/OpenID Connect)**
 - **Swagger / OpenAPI**
 - **Maven**
